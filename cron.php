@@ -2,7 +2,7 @@
 
 require('config.php');
 
-file_get_contents($website."/sendmessage?chat_id=330959283&text=Cron was called");
+
 file_get_contents("https://insulterbot.herokuapp.com/main.php");
 
 date_default_timezone_set('Asia/Kolkata');
@@ -12,6 +12,13 @@ $data= getdate();
 $month =  $data['month'];
 $date  =  $data['mday'];
 $hours  = $data['hours'];
+$minute = $date['minutes'];
+
+if($minute>=30)
+return;
+
+file_get_contents($website."/sendmessage?chat_id=330959283&text=Cron was called");
+
 $month = ucwords($month);
 
 if($hours!=00)
