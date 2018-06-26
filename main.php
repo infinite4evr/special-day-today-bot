@@ -10,7 +10,7 @@
 	// First response after receiving "/start" from userLang
 		$content = array(
 			'chat_id' => $chat_id,			
-			'text' => "	Hi, this is the official What's Special Today Telegram Bot!\n\nSometimes we miss important special days like World Health Day, Environment day etc. and you don't want to keep an app in your phone just to remind you of the special days\n\nThis bot only works as per Indian Timezone(GMT+5:30)\n\nType \"/\" :\n\nSelect /Subscribe to begin with\n\nSelect /unsubscribe to stop receiving messages\n\nNote :\nThis Bot is only available in English language\nQuestions and feedback are very welcome contact: @infinite4evr\n\nTake care!"
+			'text' => "	Hi, this is the official What's Special Today Telegram Bot!\n\nSometimes we miss important special days like World Health Day, Environment day etc. and you don't want to keep an app in your phone just to remind you of the special days\n\nThis bot only works as per Indian Timezone(GMT+5:30)\n\nType \"/\" :\n\nSelect /subscribe to begin with\n\nSelect /unsubscribe to stop receiving messages\n\nNote :\nThis Bot is only available in English language\nQuestions and feedback are very welcome contact: @infinite4evr\n\nTake care!"
 		);
 		$telegram->sendMessage($content);
 		}
