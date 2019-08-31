@@ -1,2 +1,3 @@
 # specialdaytoadaybot
-A bot which reminds you of the special day today at 00+-3 hours as per local time.
+A bot which reminds you of the special day today at GMT+5:30 hours.
+
