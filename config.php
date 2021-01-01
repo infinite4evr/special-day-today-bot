@@ -1,7 +1,7 @@
 
 <?php
 
-$bot_token = "bot-token";
+$bot_token = "Bot token";
 
 // Required
 $dbhost = "localhost";
@@ -13,7 +13,8 @@ $dbpassword = "You suck";
 require "Telegram.php";
 
 $telegram = new Telegram($bot_token);
-$website = 'https://api.telegram.org/bot' . "$bot_token";
+$api = 'https://api.telegram.org/bot' . $bot_token;
+$conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
 
 ?>
 
