@@ -1,0 +1,25 @@
+{
+  "name": "special-day-today-bot",
+  "version": "1.0.0",
+  "description": "A bot which reminds you of the special day today at GMT+5:30 hours.",
+  "main": "get-days.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinite4evr/special-day-today-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infinite4evr/special-day-today-bot/issues"
+  },
+  "homepage": "https://github.com/infinite4evr/special-day-today-bot#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "jquery": "^3.5.1",
+    "jsdom": "^16.4.0",
+    "lodash": "^4.17.20"
+  }
+}
