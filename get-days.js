@@ -8,9 +8,13 @@ var now = new Date();
 var days = [];
 for (var d = new Date(2020, 0, 1); d <= now; d.setDate(d.getDate() + 1)) {
 	days.push(
-		d.toLocaleString("default", { month: "long" }) +
-			"_" +
-			String(d.getDate()).padStart(2, "0")
+		_.toLower(
+			_.trim(
+				d.toLocaleString("default", { month: "long" }) +
+					"_" +
+					String(d.getDate()).padStart(2, "0")
+			)
+		)
 	);
 }
 
@@ -25,7 +29,7 @@ async function getDays() {
 
 			const wiki = $(result.data);
 
-			var createStream = fs.createWriteStream("data/ " + day);
+			let writeStream = fs.createWriteStream("data/ " + day + ".txt");
 
 			console.log(day + " ");
 
@@ -37,15 +41,20 @@ async function getDays() {
 					}
 				});
 
+				if (text.length === 0) {
+					console.log("date empty for " + day);
+				}
+
 				console.log("Writing dates for " + day + "\n");
 
-				createStream.write(text, (error) => console.log(error, day));
-
-				fs.on("error", function (err) {
-					console.log(err, day);
+				writeStream.on("open", function (fd) {
+					writeStream.write(text, (error) => console.log(error, day));
 				});
 
-				createStream.end();
+				// This is here incase any errors occur
+				writeStream.on("error", function (err) {
+					console.log(err);
+				});
 			});
 		} catch (err) {
 			console.log("Error occoured for date : " + day + "\n" + err);
