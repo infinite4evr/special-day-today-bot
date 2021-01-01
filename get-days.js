@@ -7,16 +7,19 @@ const $ = require("jquery")(new jsdom.JSDOM().window);
 var now = new Date();
 var days = [];
 for (var d = new Date(2020, 0, 1); d <= now; d.setDate(d.getDate() + 1)) {
-	days.push(
-		_.toLower(
-			_.trim(
-				d.toLocaleString("default", { month: "long" }) +
-					"_" +
-					String(d.getDate()).padStart(2, "0")
-			)
+	let day = _.toLower(
+		_.trim(
+			d.toLocaleString("default", { month: "long" }) +
+				"_" +
+				String(d.getDate()).padStart(2, "0")
 		)
 	);
+	days.push(day);
+
+	console.log(day);
 }
+
+console.log(days);
 
 function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
@@ -29,7 +32,7 @@ async function getDays() {
 
 			const wiki = $(result.data);
 
-			let writeStream = fs.createWriteStream("data/ " + day + ".txt");
+			let writeStream = fs.createWriteStream("data/" + day + ".txt");
 
 			console.log(day + " ");
 
