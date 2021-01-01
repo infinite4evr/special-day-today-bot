@@ -1,7 +1,7 @@
 
 <?php
 
-$bot_token = "Bot token";
+$bot_token = "bot-token";
 
 // Required
 $dbhost = "localhost";
@@ -14,10 +14,6 @@ require "Telegram.php";
 
 $telegram = new Telegram($bot_token);
 $website = 'https://api.telegram.org/bot' . "$bot_token";
-
-$text = $telegram->Text();
-$data = $telegram->getData();
-$chat_id = $telegram->ChatID();
 
 ?>
 

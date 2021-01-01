@@ -7,16 +7,16 @@ const $ = require("jquery")(new jsdom.JSDOM().window);
 var now = new Date();
 var days = [];
 for (var d = new Date(2020, 0, 1); d <= now; d.setDate(d.getDate() + 1)) {
-	let day = _.toLower(
-		_.trim(
-			d.toLocaleString("default", { month: "long" }) +
-				"_" +
-				String(d.getDate()).padStart(2, "0")
-		)
-	);
-	days.push(day);
-
-	console.log(day);
+	if (d.toLocaleString("default", { month: "long" }) === "September") {
+		let day = _.toLower(
+			_.trim(
+				d.toLocaleString("default", { month: "long" }) +
+					"_" +
+					String(d.getDate()).padStart(2, "0")
+			)
+		);
+		days.push(day);
+	}
 }
 
 console.log(days);
@@ -40,7 +40,7 @@ async function getDays() {
 				let text = "";
 				_.forEach($(span).parent().next().children(), (li) => {
 					if (!$(li).text().match("Christian feast day:")) {
-						text = text + $(li).text() + "\n";
+						text = text + $(li).text() + "\n\n";
 					}
 				});
 
